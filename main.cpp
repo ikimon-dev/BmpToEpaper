@@ -125,8 +125,28 @@ int main(int, char **)
     std::vector<uint8_t> pixels;
     LoadBitmap24("../parrots.bmp", &width, &height, &pixels);
 
+    uint8_t data = 0;
+
     for (int i = 0; i < width * height; ++i)
-        std::swap(pixels[3 * i], pixels[3 * i + 2]);
+    {
+
+        data = 0.0722 * pixels[3 * i] + 0.7152 * pixels[3 * i + 1] + 0.2126 * pixels[3 * i + 2];
+        if (data > 0)
+        {
+            pixels[3 * i] = data;
+            pixels[3 * i + 1] = data;
+            pixels[3 * i + 2] = data;
+        }
+        else
+        {
+
+            pixels[3 * i] = 0;
+            pixels[3 * i + 1] = 0;
+            pixels[3 * i + 2] = 0;
+        }
+    }
+
+    // std::swap(pixels[3 * i], pixels[3 * i + 2]);
 
     SaveBitmap24("output.bmp", width, height, pixels.data());
     return 0;
