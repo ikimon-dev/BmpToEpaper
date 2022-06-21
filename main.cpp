@@ -130,7 +130,7 @@ int main(int, char **)
     for (int i = 0; i < width * height; ++i)
     {
 
-        data = 0.0722 * pixels[3 * i] + 0.7152 * pixels[3 * i + 1] + 0.2126 * pixels[3 * i + 2];
+        data = 0.0722 * pixels[3 * i] + 0.7152 * pixels[3 * i + 1] + 0.2126 * pixels[3 * i + 2]; // https://daeudaeu.com/grayscale/#RGB:~:text=%E3%81%84%E3%81%A8%E6%80%9D%E3%81%84%E3%81%BE%E3%81%99%E3%80%82-,%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%AB%E5%8C%96%E5%BE%8C%E3%81%AE%E8%BC%9D%E5%BA%A6%E5%80%A4,-/*%20r%3AR%E3%81%AE
         if (data > 0)
         {
             pixels[3 * i] = data;
